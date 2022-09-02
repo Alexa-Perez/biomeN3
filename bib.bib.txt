@@ -1,0 +1,97 @@
+@misc{ff1,
+    author			= {Ortopedia Verástegui},
+    title			= {Prótesis de mano en México},
+    howpublished	= {\path{https://verasteguiprotesica.com/protesis-de-mano-en-mexico/}},
+    year			= {2020},
+    month			= {Abril},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }
+    
+@misc{ff2,
+    author			= {J. C., Dicaz Montes, J. M., Dorador Gózales},
+    title			= {Mecanismos de transmisión y actuadores utilizados en prótesis de mano.},
+    year			= {2009},
+    month			= {Septiembre},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }
+
+@misc{ff3,
+    author			= {J. J., Stokosa},
+    title			= {Opciones para las prótesis de los miembros},
+    howpublished	= {\path{https://www.msdmanuals.com/es-mx/professional/temas-especiales/miembro-prot%C3%A9sico/opciones-para-las-pr%C3%B3tesis-de-los-miembros}},
+    year			= {2021},
+    month			= {Enero},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }  
+
+@misc{ff4,
+    author			= {P&O MG LATAM},
+    title			= {Tipos y modalidades de prótesis para mano},
+    howpublished	= {\path{https://protesismg.com/las-protesis-de-mano-un-universo-que-sigue-en-construccion/blog-especializado-mg-latam/ortopedia-y-traumatologia/cod-25017/#mce_36}},
+    year			= {2019},
+    month			= {Marzo},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }  
+   
+@misc{ff5,
+    author			= {J.L., Loaiza, N., Arzola},
+    title			= {EVOLUCIóN Y TENDENCIAS EN EL DESARROLLO DE PRóTESIS DE MANO},
+    year			= {2011},
+    month			= {Agosto},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }   
+
+@misc{ff6,
+    author			= {EsMachina},
+    title			= {Prótesis de mano en la actualidad (2021)},
+    howpublished	= {\path{https://www.esmachina.com/que-es-protesis-de-mano-tipos-y-precios/}},
+    year			= {2020},
+    month			= {Enero},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }  
+
+@misc{ff7,
+    author			= {A. E. Armas Álvarez, A. K. López Castañeda,  I. Uriarte},
+    title			= {Control de modelo de prótesis de mano por señal mioeléctrica},
+    howpublished	= {\path{dx.doi.org/10.24254/CNIB.15.55}},
+    year			= {2021},
+    month			= {Junio},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }  
+
+@misc{ff8,
+    author			= {C. D. Rodríguez Rincón},
+    title			= {Modelamiento y simulación del movimiento de la mano humana, empleando herramientas Cae},
+    howpublished	= {\path{https://ciencia.lasalle.edu.co/cgi/viewcontent.cgi?article=1112&context=ing_automatizacion}},
+    year			= {2016},
+    month			= {},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }  
+   
+@misc{ff9,
+    author			= {J. A. Mahecha Escarraga},
+    title			= {Las Prótesis Mioeléctricas},
+    howpublished	= {\path{https://repository.uniminuto.edu/bitstream/10656/3143/1/TTE_MahechaEscarragaJordyAlexis_2015.pdf}},
+    year			= {},
+    month			= {},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }   
+
+@misc{ff10,
+    author			= {M. Ceccarelli, N. E. Nava Rodriguez, J. M. Jauregui Becker, J. E. Parada Puig y G. Carbone},
+    title			= {Diseño y experimentación de un dedo articulado antropomorfo con un grado de libertad},
+    howpublished	= {\path{https://www.interempresas.net/Robotica/Articulos/8366-Diseno-y-experimentacion-de-un-dedo-articulado-antropomorfo-con-un-grado-de-libertad.html}},
+    year			= {2004},
+    month			= {Junio},
+    note			= {Accedido en septiembre de 2022},
+    language        = {Español},
+    }  

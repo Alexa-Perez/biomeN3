@@ -1,0 +1,359 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\setlength{\parskip}{5pt} % esp. entre parrafos
+\setlength{\parindent}{20pt} % esp. al inicio de un parrafo
+\usepackage{amsmath} % mates
+\usepackage[sort&compress,numbers]{natbib} % referencias
+\usepackage{url} % que las URLs se vean lindos
+\usepackage[top=25mm,left=20mm,right=20mm,bottom=25mm]{geometry} % margenes
+\usepackage{hyperref} % ligas de URLs
+\usepackage{graphicx} % poner figuras
+\usepackage[spanish]{babel} % otros idiomas
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+
+
+\author{Equipo 4 
+        \\P. O. Karen Alexa, I. A. Lizeth Alexandra,  
+        \\P. P. Maria de los Angeles, T. T. Viviana Nathalie, \\M. V Miguel Angel}
+\title{\textbf{Prótesis de mano}} % titulo
+\date{\today}        
+
+\begin{document} % inicia contenido
+
+\maketitle % cabecera
+
+\begin{abstract} % resumen
+Las prótesis de mano son consideradas prótesis de extremidad o miembro superior las cuales se dividen en cinco tipos generales, de igual forma, la prótesis de mano se divide en cuatro tipos, las neumática, mecánicas, eléctricas e híbridas. Es necesario conocer la biomecánica de la mano así como los mecanismos de los dedos de la misma.
+\end{abstract}
+
+\section{Introducción}\label{intro} % sección y etiqueta
+
+En el presente documento se estarán abordando temas relacionados con la biomecánica de la mano así como los tipos de prótesis que existen para esta, de igual forma se estará hablando sobre los mecanismos de los dedos y también se agregaran información sobre simulaciones de estos. Se hablara específicamente sobre las prótesis electromecánicas así como los sistemas de microcontroladores, los drivers de motores, etc de las prótesis.
+
+\section{Desarrollo}
+
+Las \textbf{prótesis de mano} se consideran una \textit{prótesis de extremidad superior}, las cuales se refiere a un dispositivo fabricado artificialmente que sirve como sustituto de una mano parcial o totalmente perdido debido a un accidente, lesión, enfermedad o defecto congénito. Vienen en diferentes formas, tamaños y diseños. Una prótesis para amputación de mano comprende típicamente ejes, encajes y componentes para imitar la unión del miembro a una articulación o rótula. Se puede fijar al cuerpo mediante el uso de cables.
+
+Una prótesis puede ser cosmética, funcional o ambas. La prótesis cosmética generalmente se diseña con el único propósito de hacer que la extremidad luzca natural y proporciona poca o ninguna funcionalidad. La prótesis funcional, por otro lado, puede ayudar a un amputado a realizar ciertas tareas que son desafiantes o imposibles después de la pérdida de una extremidad. Sin embargo, normalmente ofrece poco o ningún disfraz cosmético.
+
+Se pueden clasificar según el material, la funcionalidad, el mecanismo de actuación, la apariencia, el nivel de amputación o por el precio. Sin embargo, la taxonomía principal es el mecanismo de actuación de la prótesis \cite{ff1}.
+
+    \subsection{Biomecánica de la Mano}
+    La mano es el elemento terminal de la cadena cinemática del miembro superior y tiene como facultad realizar movimientos muy precisos y variados, además de esto, adicionando el dedo pulgar, se permite tener un conjunto óseo con función opuesta indispensable para la facultad prensora de la mano, dotando al ser humano de una facultad indispensable en su desarrollo \cite{ff8}.  
+    
+    \subsubsection{Anatomía Ósea de la Mano y Mecanismo de los Dedos}
+    La mano se constituye de 27 huesos, de los cuales 14 son falanges (3 falanges para los dedos índice, medio, anular y meñique, 2 falanges para el dedo pulgar); 5 huesos metacarpianos en la zona palmar, y 8 carpos en el área de la muñeca, se observa la distribución en la Figura 1
+    
+                    \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=70mm]{anatomia osea de la mano.png} % archivo
+            \caption{Anatomía ósea de la mano humana}
+            \label{grafica}
+        \end{figure}
+        
+    La libertad de movimiento definida como grados de libertad (GDL) de la mano están distribuidos en dos tipos de movimiento: abducción – aducción y flexión – extensión. En cuya sumatoria se logra obtener cerca de 30 grados de libertad.
+    
+    El movimiento de abducción (apertura) y aducción (cierre) permite al dedo desplazarse fuera y regresar a su eje medio trasversal (Figura 2), convirtiéndose este movimiento en uno de los más complicados de modelar y replicar.
+    
+                \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=85mm]{abduccion y aduccion.png} % archivo
+            \caption{Movimiento de Aducción y Abducción}
+            \label{grafica}
+        \end{figure}
+    
+\newpage 
+    
+    La flexión y extensión corresponde a los movimientos de apertura y cierre natural de la mano, estando el eje de rotación dispuesto de forma perpendicular al eje transversal de los dedos, formándose así las zonas articuladas interfalangeales de los dedos: Articulación interfalange distal, articulación interfalange proximal y articulación interfalange metacarpofalangeal. 
+    
+                    \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=75mm]{falanges de los dedos.png} % archivo
+            \caption{Falanges del dedo humano}
+            \label{grafica}
+        \end{figure}
+    
+    Los rangos de movimiento para los movimientos de flexión y extensión se describen en la tabla:
+    
+                    \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=135mm]{tabla gdl.png} % archivo
+            \caption{Rango de movimiento (flexión y extensión) para el dedo humano}
+            \label{grafica}
+        \end{figure}
+        
+    Para la representación esquemática desarrollada de la mano se plantea la siguiente distribución y nomenclatura, la cual facilitará la obtención del modelo cinemático de la mano:
+
+                    \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=135mm]{tabla 2.png} % archivo
+            \caption{Nomenclatura y distribución de eslabones y articulaciones de la representación esquemática}
+            \label{grafica}
+        \end{figure}
+        
+
+        
+    *Siendo ‘t’=Pulgar, ‘i’=Índice, ‘m’=Medio, ‘a’=Anular, ‘e’=Meñique.
+    
+    La representación esquemática postulada se indica en la Figura 6.
+    
+                        \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=70mm]{modelo esquematico.png} % archivo
+            \caption{Representación esquemática del modelo cinemático de la mano.}
+            \label{grafica}
+        \end{figure}
+        
+    El agarre humano posee una sorprendente flexibilidad e incomparable destreza, tal que ha llamado la atención de muchos investigadores. El estudio del agarre humano como modelo ha llevado a la construcción de innovadores pero costosos prototipos de dedos, para ser utilizados como partes funcionales de robots antropomórficos \cite{ff10}. 
+
+
+\newpage
+
+\subsection{Antecedentes de la Prótesis de Mano}
+        Siempre la mano humana ha sido considerada una de las herramientas más precisas y versátiles de la historia, es por esto, que ante la ausencia de una de estas extremidades, se hace necesario el desarrollo de prótesis y de técnicas de ingeniería que permitan aproximar estos elementos externos al funcionamiento de la misma. El desarrollo de las prótesis, así como la evolución en su diseño y los procesos de manufactura concernientes en su fabricación está directamente relacionado con el avance en el desarrollo y manipulación de materiales empleados por el hombre, así como también al desarrollo tecnológico y la comprensión de la mecánica del funcionamiento del cuerpo humano. 
+        
+        El registro de la primera prótesis de miembro superior empleada en un cuerpo humano data del año 2000 A.C. Posteriormente, con la evolución en el manejo del hierro se desarrollaron prótesis de manos rígidas, la primera registra de alrededor de 218-202 A.C y fue diseñada y construida por Marcus Sergius durante la Segunda Guerra Púnica. En 1400 se fabrica la mano de alt-Ruppin (Figura 5) que también estaba construida en hierro y contaba con un pulgar en oposición rígido pero los dedos trifalángicos eran flexibles, además de una muñeca móvil, se comienza a pensar en más que suplir una necesidad estética, y se busca funcionalidad. 
+        
+                \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=60mm]{Prótesis de mano de Alt-Ruppin construida en 1400.jpg} % archivo
+            \caption{Prótesis de mano de Alt-Ruppin construida en 1400.}
+            \label{grafica}
+        \end{figure}
+        
+        En el siglo XVI se mejora considerablemente el diseño del mecanismo de las prótesis de mano, y es hasta el siglo XIX que se comienzan a usar cueros, polímeros naturales y madera en la construcción de las prótesis. Peter Beil, quien diseña la primera mano autopropulsada, la cual era accionada por movimientos del tronco y el hombro. A comienzos del siglo XX en Alemania, se desarrollan las primeras prótesis activadas por músculos del muñón desarrolladas por Sauerbruch. En 1946 se desarrollan sistemas de accionamiento externo, surgiendo así las prótesis neumáticas y eléctricas. 
+        
+\newpage
+        
+        \subsubsection{Tipos de Prótesis de Miembro Superior} 
+            Es importante conocer primero que nada los tipos de prótesis de miembro superior, los cuales se dividen en cinco tipos generales, estos son:
+        
+            \paragraph{Prótesis Pasivas.} Ayudan al equilibrio, la estabilización de objetos (como un papel al escribir) o actividades recreativas/vocacionales. Parecen un miembro natural, son las más ligeras y económicas, pero no permiten la prensión activa de las manos.
+        
+            \paragraph{Prótesis de Control Corporal.} Son las indicadas con mayor frecuencia porque tienden a ser menos costosas, más duraderas y requieren menos mantenimiento. Un sistema de cable con arnés suspende la prótesis y captura el movimiento escapular y humeral para operar la articulación del gancho, la mano o el codo. Algunos sistemas usan el brazo opuesto para activar una función particular; un extremo de una correa rodea el brazo opuesto en la axila, y el otro extremo se conecta a un cable que controla el dispositivo terminal (gancho, mano o dispositivo especializado para una función en particular). Las personas que realizan trabajo físico suelen preferir este tipo.
+        
+            \paragraph{Prótesis Mioeléctricas Alimentadas Externamente.} Estas permiten movimientos activos de las manos y las articulaciones sin necesidad de movimientos escapulares, humerales o del tronco. Los sensores y otras entradas detectan el movimiento muscular del miembro residual o la parte superior del cuerpo y controlan actuadores eléctricos que proporcionan una mayor fuerza de prensión que las prótesis de control corporal.
+        
+            \paragraph{Prótesis Híbridas.} Por lo general, se prescriben para amputaciones de las porciones proximales de los miembros superiores. Combinan características específicas de las prótesis de control corporal y las mioeléctricas, por ejemplo, un codo de control corporal podría combinarse con una mano activada por energía externa o un dispositivo terminal.
+        
+            \paragraph{Prótesis Especificas para cada Actividad.} Están diseñadas para permitir la participación en actividades que de otro modo dañarían el miembro residual del paciente o la prótesis habitual, o en situaciones en las cuales la prótesis habitual no funcionaría de manera eficaz. Estas prótesis a menudo incluyen diseños especiales para la interfaz, el receptáculo, el sistema de suspensión y el dispositivo terminal \cite{ff3}. 
+    
+            \subsubsection{Tipos de Prótesis de Mano}
+            La historia de las prótesis, nos enseña que desde épocas antiquísimas, existen innumerables versiones de prótesis. Incluso en la actualidad algunos diseños tienen vigencia o son la base para productos que se fabrican con tecnologías recientes, como por ejemplo las prótesis hechas con impresora 3D, que utilizando los modelos antiguos, sustituyen el metal por el plástico, incorporando pocas modificaciones en la arquitectura del mecanismo \cite{ff4}.
+    
+        \begin{figure} [H] % figura
+            \centering
+            \includegraphics[width=70mm]{mano.jpg} % archivo
+            \caption{Prótesis de mano.}
+            \label{grafica}
+        \end{figure}
+
+        Las prótesis abarcan muchísimos tipos y grupos, se fabrican a nivel profesional y hasta casero, pero nos centraremos en las más conocidas y empleadas por la industria mundial y el sistema de salud. Es por ello que las prótesis de mano se dividen en cuatro categorías, las cuales son:
+        \begin{itemize}
+            \item \textbf{Prótesis de Mano Mecánicas}
+            
+            Son dispositivos que se usan con la función de cierre o apertura a voluntad, controlados por medio de un arnés que se encuentra sujeto alrededor de los hombros, parte del pecho y del brazo. Solo pueden ser utilizados para el agarre de objetos relativamente grandes y redondos debido a la poca precisión del mecanismo.
+            
+            \begin{figure} [H] % figura
+                \centering
+                \includegraphics[width=70mm]{mecanica.jpg} % archivo
+                \caption{Prótesis de mano mecánica.}
+                \label{grafica}
+            \end{figure}
+            
+            \item \textbf{Prótesis de Mano Neumáticas}
+            
+            Accionadas por medio de ácido carbónico comprimido, que proporciona una gran cantidad de energía. Aunque, presenta como inconveniente las complicaciones de sus aparatos y accesorios, y el riesgo en el uso del ácido carbónico. Su desarrollo fue interrumpido debido a las dificultades técnicas presentadas.
+            
+            \begin{figure} [H] % figura
+                \centering
+                \includegraphics[width=70mm]{neumatica.jpg} % archivo
+                \caption{Prótesis de mano neumática.}
+                \label{grafica}
+            \end{figure}
+            
+            \item \textbf{Prótesis de Mano Eléctricas}
+            
+            Utilizan motores eléctricos en los dispositivos terminales, muñeca y codo, con una batería recargable. Es posible controlarlas de varias formas: servo control, un botón pulsador o un interruptor con arnés. El precio de adquisición es elevado. Existen además otras desventajas inherentes al mantenimiento más complejo, la baja resistencia a medios húmedos y el peso.
+            
+            \begin{figure} [H] % figura
+                \centering
+                \includegraphics[width=70mm]{electrica.jpg} % archivo
+                \caption{Prótesis de mano eléctrica.}
+                \label{grafica}
+            \end{figure}
+            
+             \item \textbf{Prótesis de Mano Híbridas}
+             
+             Combinan la acción del cuerpo con el accionamiento por electricidad. Este concepto es ampliamente utilizado en las prótesis transhumerales (amputación por encima del codo), donde por lo general el codo es accionado por el cuerpo y el dispositivo terminal (gancho o mano) es de accionamiento mioeléctrico \cite{ff5}.
+             
+             \begin{figure} [H] % figura
+                \centering
+                \includegraphics[width=70mm]{hibrida.jpg} % archivo
+                \caption{Prótesis de mano híbrida.}
+                \label{grafica}
+            \end{figure}
+             
+        \end{itemize}
+                 
+
+    \subsection{Prótesis Electromecánicas}
+    Las prótesis mioeléctricas son usadas para reemplazar miembros externos mal formados o amputados con el fin de suplir su función y acoger su forma original; la mioeléctrica (también conocida como electromecánica, cibernéticas, biónicas, mecatrónicas, etc) es usada para leer los movimientos generados por el musculo del individuo el cual produce señales eleéctricas (EMG) en micro voltios y son procesadas para producir movimientos en los motores encendiéndose o apagándolos, capturando estas señales cuando el musculo de la parte afectada esta tenso o relajado.
+    
+    Con el tiempo las prótesis electromecánicas han sido una tecnología renovadora capaz de reemplazar y cumplir con las funciones básicas de un miembro externo amputado; estas prótesis mioeléctricas cuentan con un diseño compuesto por servomotores que se maneja a partir de señales EMG generadas por los músculos del paciente que permiten el movimiento de la misma mano mioeléctrica, ya sea un movimiento de pinza para agarre o movimiento de muñeca contando en algunas ocasiones dependiendo del diseño con sensaciones de frío o calor. 
+
+    Las prótesis mioeléctricas son la combinación de la electrónica y mecánica que se controla mediante señales mioeléctricas reflejadas en los músculos.
+
+    Los sensores manejados en esta área se encargan de percibir la señal producida por el musculo del paciente y enviar esta señal al sistema electrónico de la prótesis y esta misma se encarga de realizar los movimientos correspondientes como por ejemplo el despliegue y cierre de una mano; los sensores cuentan con el manejo de electrodos que son los que identifican la señal generada por el musculo (figura \ref{partesbrazomio}) \cite{ff9}.
+     \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=50mm]{protesisMioelectricas.png} % archivo
+        \caption{Partes de un brazo mioeléctrico.}
+        \label{partesbrazomio}
+    \end{figure}
+
+\newpage
+
+    \paragraph{Señal y Actividad Electromiografíca}
+    La electromiografía es un tren aleatorio de potenciales de acción que se registran extracelularmente y que son generados por las fibras musculares acompañadas de un trabajo mecánico.
+
+    El registro de la actividad electromiografica tiene que poseer un amplificador de alta ganancia que amplifique entre 200 y 5000 veces la señal generada por el musculo en las frecuencias de 1-2 kHz de rango donde también se podría decir que es una suma temporal de señales eléctricas (figura \ref{señalesElectromiograficas}) \cite{ff9}.
+     \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=55mm]{señalesElectromiograficas.png} % archivo
+        \caption{Señales que recibe el amplificador bipolar.}
+        \label{señalesElectromiograficas}
+    \end{figure}
+
+    \paragraph{Ventajas de una prótesis Mioeléctrica}
+
+    \begin{enumerate}
+    \item Solo se requiere de movimientos musculares para operarla.
+    \item Mejor libertad de movimiento.
+    \item Reemplaza de forma eficaz un miembro amputado.
+    \item Es proporcional al tamaño del paciente.
+    \item El número de conexiones o cableado es menor.
+    \item Tiene apariencias con el miembro real del paciente
+    \item El sistema electrónico está en su interior.
+    \end{enumerate}
+    
+    \paragraph{Desventajas de una prótesis Mioeléctrica} 
+    
+    \begin{enumerate}
+    \item Requiere ser recargada ya que usa baterías.
+    \item Requiere un mantenimiento constante.
+    \item El peso de la prótesis es desfavorable con respecto a otro tipo de prótesis.
+    \item La tecnología usada en esta prótesis suele ser demasiado costosa.
+    \end{enumerate}
+
+    \subsection{Sistemas de Control}
+    Tomando como referencia el artículo “Control de modelo de prótesis de mano” se presenta un sistema de control para un modelo de prótesis de mano basado en el análisis del comportamiento de tres señales distintas de los músculos: cubital anterior, extensor de la muñeca y flexor común de los dedos, los cuales están presentes en el antebrazo. Se diseñó e implementó un sistema de adquisición y acondicionamiento analógico para las tres señales, las cuales posteriormente fueron digitalizadas con el conversor análogo-digital del microcontrolador AtMega. Finalmente, utilizando la plataforma LabView, se implementó un algoritmo para clasificar la respuesta del sistema en base al comportamiento de las 3 señales y por medio de ésta accionar los servomotores adecuados presentes en un modelo de prótesis de mano\cite{ff7}.
+    
+    Se utilizó el CAD del microcontrolador AtMega , el cual posee una capacidad de 10bits de resolución. Este microcontrolador cuenta con 6 canales analógicos pero solamente un CAD por lo que se utilizó una frecuencia de muestreo de 3KHz y se multiplexó el convertidor para permitirle transformar 3 señales de manera casi simultánea brindando una frecuencia de muestreo de 1KHz para cada una, evitando de esta manera el efecto de aliasing respetando el teorema de Nyquist.
+     \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=65mm]{teorema.png} % archivo
+        \caption{Teorema de Nyquist.}
+        \label{CONT}
+    \end{figure}
+    
+    Como se muestra en la figura \ref{CONT}, utilizando el programa LabView se logró generar un programa de control y una interfaz visual que permite visualizar gráficamente el comportamiento de las 3 señales monitoreadas de manera simultánea.
+    \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=65mm]{LabView.png} % archivo
+        \caption{Diagrama de flujo operacional de cómo se evaluaban los datos adquiridos.}
+        \label{CONT}
+    \end{figure}
+    \subsection{Actuadores o motores en prótesis.}
+    El sistema de actuación este compuesto básicamente por los elementos encargados de producir la potencia mecánica del sistema, estos elementos son comúnmente llamados actuadores, que son dispositivos capaces de generar una fuerza a partir de líquido, energía eléctrica o gaseosa. De acuerdo con esta definición podemos distinguir tres tipos de actuadores: hidráulicos, neumáticos y eléctricos. 
+    Los actuadores eléctricos son los mas ampliamente usados por los diseñadores de prótesis de mano porque presentan una serie de prótesis de mano porque presentan una serie de ventajas sobre los otros tipos de actuadores, como alta eficiencia, gran disponibilidad y los tamaños compactos. Se dice que son eléctricos porque transforman la energía proveniente de una fuente eléctrica directamente en energía mecánica\cite{ff2}.
+
+    \paragraph{Motores de CD.}
+    Dentro de los actuadores eléctricos el más común es el motor de CD, que esta constituido por un estator y un rotor, el estator contiene uno o más devanados por cada polo, los cuales están diseñados para llevar intensidades de corriente directa que produce un campo magnético. Algunas De las ventajas de este tipo de motores son el buen rendimiento y fiabilidad, bajo costo, respuesta rápida, además si el voltaje aplicado en sus terminales es inverso el sentido de giro también lo es. Por otro lado producen fricción y por consecuencia calor y ruido, generan chispas, el rotor este sujeto a fuerzas centrifugas y el par máximo se produce a altas velocidades.
+
+    \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=60mm]{M CD.png} % archivo
+        \caption{Prótesis de mano con motores de CD.}
+        \label{grafica}
+    \end{figure}
+
+    \paragraph{Servomotores.}
+    Los servomotores son otro tipo muy común de actuadores, a grandes rasgos consiste en un motor CD, que permite situar el eje de salida en una determinada posición angular, mediante una señal externa de control. Esta formado por carcasa, motor, engranes que reducen la velocidad del motor y aumentan el par de salida, circuito electrónico que controla la posición de salida, potenciómetro que se utiliza como sensor para conocer la posición del eje de salida. Por lo general un servomotor puede girar aproximadamente 180 grados. Las ventajas que presenta son: relativamente fácil de controlar, puede ser conectado directamente a microcontroladores, su eje puede ser llevado a una posición especifica, es eficiente. Sin embargo, algunas de sus desventajas son: que no gira de manera continua, para evitar interferencia en los circuitos electrónicos es conveniente conectar la alimentación de los servomotores a una fuente diferente a la usada para los circuitos de control.
+    
+    \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=60mm]{SERVO.png} % archivo
+        \caption{Prótesis de mano con servomotores.}
+        \label{exemploLabel}
+    \end{figure}
+    
+    \paragraph{Ultrasónicos.}
+    También dentro de los motores encontramos a los ultrasónicos, en particular a los rotativos de onda viajera, que son motores eléctricos formados principalmente por 4 componentes (rotor, estator, electrodo y material piezoeléctrico). El elemento encargado en generar las micro deformaciones a partir de un nivel de voltaje es el material piezoeléctrico, este se encuentra adherido a un electrodo que se encarga de transmitir las señales de excitación, estos dos componentes se acoplan al estator que trasmitirá el movimiento por fricción al rotor. Sus ventajas son: elevado par a bajas velocidades, rápida respuesta y buena parada con lo que se logra una buena controlabilidad, funcionamiento silencioso, estructura simple, no le afectan campos magnéticos externos ni los genera. Sin embargo sus desventajas son: necesita un suministro de potencia de alta frecuencia, bajo tiempo de vida útil debido a la fricción entre el estator y el rotor y la caída en las características par velocidad con el tiempo\cite{ff2}. 
+    
+    \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=60mm]{SONIC.png} % archivo
+        \caption{Prótesis de mano con motores ultrasónicos.}
+        \label{exemploLabel}
+    \end{figure}
+    
+    
+    
+    \paragraph{Motores sin escobillas.}
+    En los motores sin escobillas, a diferencia de lo que pasa en un motor de CD convencional. Los electroimanes no se mueven, en lugar de eso, los magnetos permanentes rotan y la armadura permanece estática. La mayor ventaja es que al no a ver rozamiento entre los magnetos permanentes y la armadura generan menos calor y por l tanto hay menor perdida por fricción, mayor vida útil, mayor eficiencia, menor peso y no produce chispas. Sin embargo son mas costosos que los motores de CD convencionales requieren de control mas complejo y no giran al revés al cambiar la polaridad. 
+    
+    
+    \paragraph{Motores de aleación de memoria de forma.}
+    En los últimos años se ha incrementado es uso de actuadores no convencionales, como es el caso de las aleaciones con memoria de forma (SMA), que se pueden considerar como actuadores eléctricos debido a que utilizan de este tipo de energía para su funcionamiento. Son aleaciones metálicas a las cuales estando a temperatura relativamente fría se deforman mediante la acción de una carga externa, una vez retirada la carga puede regresar a la forma que tenían originalmente mediante un simple calentamiento. Las ventajas mas significativas que presentan cuando son utilizadas en prótesis son: la generación de movimiento lineales, actuador muy ligero, pueden ser manufacturadas en casi cualquier forma y tamaño, tiene un alto nivel de recuperación plástica, resistente a la corrosión y son estables frente a aplicaciones cíclicas. En cambio se requiere el manejo de temperaturas altas, tienen movimientos poco precisos, falta de control en el tiempo de enfriado y si eficiencia energética es bajaos poco precisos, falta de control en el tiempo de enfriado y si eficiencia energética es baja\cite{ff2}. 
+    
+    \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=60mm]{MEMORIA.png} % archivo
+        \caption{Prótesis de mano con motores de aleación de memoria de forma.}
+        \label{exemploLabel}
+    \end{figure}
+    
+\subsection{Simulación}
+Tomando como referencia el artículo "Modelado y simulación del movimiento de la mano humana, empleando herramientas Cae" \cite{ff8} el proceso que se realiza es el siguiente.
+\begin{itemize}
+    \item Análisis de carpograma de referencia para importar dicha imagen a SolidWorks.
+\end{itemize}
+ \begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=60mm]{carpo.png} % archivo
+        \caption{Carpograma de referencia.}
+        \label{exemploLabel}
+    \end{figure}
+\begin{itemize}
+    \item Simulación estructurada CAD.
+    \item Evaluación de modelo.
+\end{itemize}
+\begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=95mm]{SIMULACION.png} % archivo
+        \caption{Simulación estructura CAD mano humana.}
+        \label{exemploLabel}
+    \end{figure}
+\begin{itemize}
+    \item Evaluación de modelo dinámico.
+    \item Comparación de resultados.
+    \item Análisis de resultados.
+\end{itemize}
+\begin{figure} [H] % figura
+        \centering
+        \includegraphics[width=110mm]{resultados.png} % archivo
+        \caption{Comparación entre el carpograma y el modelo CAD.}
+        \label{exemploLabel}
+    \end{figure}
+\section{Conclusiones}
+La mano humana es una extremidad esencial para realizar tareas de manipulación, agarre y destreza de todo tipo de objetos por lo que carecer de la misma resulta ser grave tanto para la interacción física como psicológica debido al cambio estético de la extremidad en caso de tener el miembro amputado. 
+
+Llegamos a la conclusión de que las prótesis diseñadas para devolver la parcial funcionalidad que daría la extremidad original es una necesidad que ha conducido a grandes avances tales que hoy en día se pueden ver mecanismos antropomórficos que logran no solo solucionar el problema estético, sino que logran añadir más taxonomías de agarre, lo que conlleva a una mayor funcionalidad.
+
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{bib}
+
+\end{document}
